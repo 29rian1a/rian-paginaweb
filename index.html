@@ -1,95 +1,106 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>blog</title>
+    <title>Blog Tech</title>
     <style>
+        :root {
+            --cor-primaria: #183C63;
+            --cor-secundaria: #3782d2;
+            --cor-fundo: #ffffff;
+            --cor-texto: #151428;
+            --cor-contraste: #f3eef7;
+            --cor-botao: #f9f9f9;
+            --fonte-texto: 'Segoe UI', sans-serif;
+        }
+
+        /* Aplica a transição suave para mudança de tema em todos os elementos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .tema-escuro {
+            --cor-primaria: #c9e3ff;
+            --cor-fundo: #151428;
+            --cor-texto: #ffffff;
+            --cor-contraste: #f3eef7;
+            --cor-secundaria: #4a90e2;
+            --cor-botao: #201f3d;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            font-family: var(--fonte-texto);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
         header {
-            background-color: #111177;
-            color: #ffffff;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 16px;
-            border: 5px solid #00e7ad;
-        }
-
-        main {
-            background-color: #ffffff;
-            color: #111177;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 16px;
-            gap: 16px;
-        }
-        article{
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--cor-secundaria);
+            margin-bottom: 30px;
         }
 
-        img {
-            width: 80px;
-            height: 80px;
+        h1 {
+            color: var(--cor-primaria);
         }
 
-        .artigo-autor {
+        .btn-tema {
+            background-color: var(--cor-botao);
+            color: var(--cor-texto);
+            border: 1px solid var(--cor-secundaria);
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
             font-weight: bold;
+        }
+
+        .btn-tema:hover {
+            opacity: 0.9;
+        }
+
+        .artigo {
+            background-color: var(--cor-botao);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .artigo h2 {
+            color: var(--cor-secundaria);
+            margin-bottom: 10px;
         }
     </style>
 </head>
-
 <body>
+
     <header>
-        <h1>Meu blog tech</h1>
-        <p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
+        <h1>Blog Tech</h1>
+        <button id="btnAlternarTema" class="btn-tema">Alternar Tema</button>
     </header>
+
     <main>
-        <article>
-            <img src="imagem-blog.png"
-                alt="Logotipo da [Nome da Marca] com o slogan [Slogan], em letras brancas sobre fundo preto.">
-    
-            <div>
-                <h2>Meu primeiro post</h2>
-                <p class="artigo-autor">por: Rian Pozza</p>
-                <p>Boas-Vindas ao meu novo blog! Aqui vou compartilhar dica de programação e curiosidades da área de
-                    tecnologia.</p>
-                <button>❤️ <span>0</span></button>
-                <button>👍 <span>0</span></button>
-            </div>
-        </article>
-        <article>      
-            <img src="imagem-blog.png"
-                alt="Logotipo da [Nome da Marca] com o slogan [Slogan], em letras brancas sobre fundo preto.">
-    
-            <div>
-                <h2>Meu segundo post</h2>
-                <p class="artigo-autor">por: Rian Pozza</p>
-                <p>Boas-Vindas ao meu novo blog! Aqui vou compartilhar dica de programação e curiosidades da área de
-                    tecnologia.</p>
-                <button>❤️ <span>0</span></button>
-                <button>👍 <span>0</span></button>
-            </div>
+        <article class="artigo">
+            <h2>Bem-vindo ao Blog Tech</h2>
+            <p>Este é um exemplo de publicação para demonstrar a alternância entre o modo claro e escuro utilizando CSS e JavaScript.</p>
         </article>
     </main>
 
     <script>
-        const botoes = document.querySelectorAll("button");
-
-        botoes.forEach(function (botao) {
-            botao.addEventListener("click", botaoClicado);
-            function botaoClicado() {
-                console.log("fui clicado");
-                let texto = botao.querySelector("span");
-                texto.textContent++;
-
-            }
-
-
-        })
-
-
+        const btnAlternar = document.getElementById('btnAlternarTema');
+        
+        btnAlternar.addEventListener('click', () => {
+            document.body.classList.toggle('tema-escuro');
+        });
     </script>
-</body>
 
+</body>
 </html>
