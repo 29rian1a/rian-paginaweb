@@ -7,27 +7,32 @@
     <title>Blog Tech</title>
     <style>
         :root {
-            --cor-primaria: #183C63;
-            --cor-secundaria: #3782d2;
-            --cor-fundo: #ffffff;
-            --cor-texto: #151428;
-            --cor-contraste: #f3eef7;
-            --cor-botao: #f9f9f9;
-            --fonte-texto: 'Segoe UI', sans-serif;
-        }
-
-        /* Aplica a transição suave para mudança de tema em todos os elementos */
-        * {
-            transition: background-color 0.3s ease;
+            /* Paleta Modo Claro (Azul Escuro, Ciano e Cinza Suave) */
+            --cor-primaria: #0f172a;
+            --cor-secundaria: #0284c7;
+            --cor-fundo: #f8fafc;
+            --cor-texto: #1e293b;
+            --cor-contraste: #f1f5f9;
+            --cor-card: #ffffff;
+            --cor-botao: #f1f5f9;
+            --cor-borda: #cbd5e1;
+            --fonte-texto: 'Segoe UI', system-ui, sans-serif;
         }
 
         .tema-escuro {
-            --cor-primaria: #c9e3ff;
-            --cor-fundo: #151428;
-            --cor-texto: #ffffff;
-            --cor-contraste: #f3eef7;
-            --cor-secundaria: #4a90e2;
-            --cor-botao: #201f3d;
+            /* Paleta Modo Escuro (Violeta/Slate Escuro e Ciano Vibrante) */
+            --cor-primaria: #1e293b;
+            --cor-secundaria: #38bdf8;
+            --cor-fundo: #0f172a;
+            --cor-texto: #f8fafc;
+            --cor-contraste: #1e293b;
+            --cor-card: #1e293b;
+            --cor-botao: #334155;
+            --cor-borda: #475569;
+        }
+
+        body, header, main, article, button {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         body {
@@ -41,13 +46,23 @@
 
         header {
             background-color: var(--cor-primaria);
-            color: #FFFFFF;
+            color: #ffffff;
             text-align: center;
             max-width: 1000px;
             margin: 0 auto 16px auto;
-            padding: 16px;
-            border: 5px solid #4a90e2;
+            padding: 20px;
+            border: 3px solid var(--cor-secundaria);
             box-sizing: border-box;
+            border-radius: 12px;
+        }
+
+        header h1 {
+            margin: 0 0 8px 0;
+        }
+
+        header p {
+            margin: 0;
+            opacity: 0.9;
         }
 
         main {
@@ -67,20 +82,21 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            justify-content: center;
-            flex: 1 1 25%;
-            padding: 16px;
-            border-radius: 8px;
+            justify-content: space-between;
+            flex: 1 1 280px;
+            padding: 20px;
+            border-radius: 12px;
             color: var(--cor-texto);
             box-sizing: border-box;
-            /* Sombra suave no lugar da borda simples */
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background-color: var(--cor-card);
+            border: 1px solid var(--cor-borda);
         }
 
         article h2 {
-            color: var(--cor-primaria);
+            color: var(--cor-secundaria);
             margin-top: 12px;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
         }
 
         img {
@@ -92,13 +108,13 @@
 
         .artigo-autor {
             font-weight: bold;
-            color: var(--cor-primaria);
+            color: var(--cor-secundaria);
             margin: 8px 0;
         }
 
         .artigo-fonte {
             font-size: 0.85rem;
-            color: #666666;
+            color: #94a3b8;
             font-style: italic;
             margin-top: 8px;
         }
@@ -116,54 +132,36 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 6px 12px;
-            border: 1px solid #4a90e2;
+            padding: 6px 14px;
+            border: 1px solid var(--cor-secundaria);
             border-radius: 20px;
             background-color: var(--cor-botao);
             color: var(--cor-texto);
             cursor: pointer;
             font-size: 14px;
-            transition: all 0.2s ease;
         }
 
         button:hover {
-            background-color: #e8f1f5;
+            opacity: 0.85;
         }
 
         button.ativo {
-            background-color: #4a90e2;
+            background-color: var(--cor-secundaria);
             color: #ffffff;
         }
 
-        /* Estilo do botão flutuante para alternar o tema */
         .btn-tema-escuro {
             position: fixed;
-            bottom: 16px;
-            right: 16px;
-            font-size: 32px;
+            bottom: 20px;
+            right: 20px;
+            font-size: 24px;
             padding: 12px;
-            background-color: var(--cor-primaria);
+            background-color: var(--cor-secundaria);
+            color: #ffffff;
             border-radius: 50%;
             border: none;
             cursor: pointer;
-        }
-
-        /* Ajustes específicos para o Modo Escuro */
-        .tema-escuro a {
-            color: var(--cor-secundaria);
-        }
-
-        .tema-escuro p {
-            color: var(--cor-texto);
-        }
-
-        .tema-escuro header p {
-            color: var(--cor-contraste);
-        }
-
-        /* Cor de destaque do botão flutuante no Modo Escuro */
-        .tema-escuro .btn-tema-escuro {
-            background-color: var(--cor-secundaria);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         @media (max-width: 768px) {
@@ -190,7 +188,7 @@
             <img src="imagem-blog.png" alt="Ícone de livro tecnológico azul com capelo sobre ele.">
             <div>
                 <h2>Meu primeiro post</h2>
-                <p class="artigo-autor">Por: Lorena Silva Araujo</p>
+                <p class="artigo-autor">Por: Rian Pozza Preto</p>
                 <p>Boas-vindas ao meu novo blog!<br><br>Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p>
                 <p class="artigo-fonte">Fonte: Elaboração própria</p>
             </div>
@@ -206,7 +204,7 @@
             <img src="imagem-blog.png" alt="Ícone de livro tecnológico azul com capelo sobre ele.">
             <div>
                 <h2>O primeiro mouse não era de plástico</h2>
-                <p class="artigo-autor">Por: Lorena Silva Araujo</p>
+                <p class="artigo-autor">Por: Rian Pozza Preto</p>
                 <p>Antes do design ergonômico e das luzes RGB, o primeiro mouse do mundo foi construído de madeira!<br><br>Foi criado por Douglas Engelbart em 1964, ele tinha o formato de uma caixa quadrada e apenas um botão.</p>
                 <p class="artigo-fonte">Fonte: Computer History Museum</p>
             </div>
@@ -222,7 +220,7 @@
             <img src="imagem-blog.png" alt="Ícone de livro tecnológico azul com capelo sobre ele.">
             <div>
                 <h2>A primeira webcam servia para vigiar café</h2>
-                <p class="artigo-autor">Por: Lorena Silva Araujo</p>
+                <p class="artigo-autor">Por: Rian Pozza Preto</p>
                 <p>Em 1991, pesquisadores da Universidade de Cambridge criaram a primeira webcam para não perderem tempo indo até a cozinha e encontrando a cafeteira vazia.<br><br>Eles monitoravam o nível do café em tempo real nos seus monitores.</p>
                 <p class="artigo-fonte">Fonte: The National Museum of Computing</p>
             </div>
@@ -234,11 +232,10 @@
             </div>
         </article>
 
-        <button class="btn-tema-escuro">🌙</button>
+        <button class="btn-tema-escuro" aria-label="Alternar para modo escuro">🌙</button>
     </main>
 
     <script>
-        // Lógica de curtidas
         const botoes = document.querySelectorAll(".botoes-container button");
 
         botoes.forEach(function (botao) {
@@ -260,20 +257,16 @@
             });
         });
 
-        // Lógica do botão de alternância do modo escuro
         const btnTemaEscuro = document.querySelector(".btn-tema-escuro");
 
-        btnTemaEscuro.addEventListener("click", mudaTema);
-
-        function mudaTema() {
+        btnTemaEscuro.addEventListener("click", function () {
             const corpoPagina = document.body;
+            corpoPagina.classList.toggle("tema-escuro");
 
-            if (corpoPagina.classList.contains("tema-escuro")) {
-                corpoPagina.classList.remove("tema-escuro");
-            } else {
-                corpoPagina.classList.add("tema-escuro");
-            }
-        }
+            const estaEscuro = corpoPagina.classList.contains("tema-escuro");
+            btnTemaEscuro.textContent = estaEscuro ? "☀️" : "🌙";
+            btnTemaEscuro.setAttribute("aria-label", estaEscuro ? "Alternar para modo claro" : "Alternar para modo escuro");
+        });
     </script>
 </body>
 
